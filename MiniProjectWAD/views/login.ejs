@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="main-container login">
+        <div class="inner-container login">
+            <h1>Login</h1>
+
+            <form action="/login" method="post">
+                <label>
+                    Username: 
+                    <input type="text" required maxlength="25" width="100" name="username">
+                </label>
+                
+
+                <label>
+                    Password: 
+                    <input type="password" required maxlength="30" minlength="10" width="100" name="password">
+                </label>
+                
+                <div class="error-message"><%= error_msg %></div>
+                <input type="submit" value="Submit">
+            </form>
+
+            <a href="/register ">Create new account</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,204 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --greencolor : #1f7a1f;
+    --yelloworange: #ffa31a;
+    --bluecolor : #00e6e6;
+}
+
+body{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+header{  
+    border-radius: .8rem;
+    height: 10vh;
+    background-color: #000;
+}
+
+.menubar{   
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.logo{
+    font-size: 2.5rem;
+    font-weight: 700;
+    /*color: orangered;*/
+    color: #00e6e6;
+}
+
+span{
+    color: #fff;
+}
+
+.sign-register{
+    display: flex;
+    justify-content: center;
+}
+
+.btn a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 900;
+    padding: .3em .6em;
+    border-radius: 2rem;
+}
+
+.btn a:hover{
+    color: #00f;
+}
+
+.main-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-container.index{
+    /*background: linear-gradient(to bottom right,green 0 50%, orange 50%,yellow 75%);*/
+    background: linear-gradient(to bottom right,#fff 0 50%, var(--bluecolor) 50% 100%);
+    height: 90vh;
+}
+
+.inner-container{
+    width: 60%;
+    height: 60%;
+    text-align: center;
+}
+
+.title{
+    margin: 5% 0 2% 0;
+    font-size: 3rem;
+    font-weight: 800;
+}
+.subtitle{
+    font-size: 2.4rem;
+    font-weight: 600;
+}
+
+.start-now{
+    margin: 3em auto 0  auto;
+    width: fit-content;
+    padding: .8em 2.5em;
+    border-radius: 2.5rem;
+    background-color: var(--greencolor);
+    font-size:1.5rem;
+    font-weight: 700;
+
+    border: 3px solid #000 ;
+}
+.start-now:hover{
+    transform: scale(1.2);
+}
+
+.tagline{
+    margin: 1em;
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+@media (max-width : 900px){
+    
+    .logo{
+        font-size: 2rem;
+        font-weight: 600;
+    }
+    
+    .btn a{
+        font-size: 1.2rem;
+        font-weight:800;
+        padding: .2em .4em;
+    }
+
+    .title{
+        margin: 5% 0 2% 0;
+        font-size: 2.2rem;
+        font-weight: 700;
+    }
+    .subtitle{
+        font-size: 1.8rem;
+        font-weight: 500;
+    }
+    
+    .start-now{
+        padding: .5em 2.2em;
+        border-radius: 2.2rem;
+        font-size:1.5rem;
+        font-weight: 700;
+    }
+    .tagline{
+        margin: 1em;
+        font-size: 1.2rem;
+        font-weight: 300;
+    }
+}
+
+
+/*LOGIN & REGISTER PAGE*/
+.main-container.login , .main-container.register{
+    height: 100vh;
+    background: linear-gradient(to bottom right,#fff 0 50%, var(--bluecolor) 50% 100%);
+}
+.inner-container.login , .inner-container.register{
+    height: fit-content;
+    width: fit-content;
+    padding: 2em 4em;
+    background-color: #fff;
+    border: 4px solid #000;
+    border-radius: 1.5rem;
+}
+
+form {
+    margin: 3em 0 1em 0 ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+}
+form label{
+ 
+    margin: 1em 0 ;
+    font-size: 1.2rem;
+}
+form input{
+    font-size: 1.2rem;
+}
+
+input[type='submit']{
+    width: fit-content;
+    margin: .5em auto;
+    padding: .4em 1em;
+    font-size: 1rem;
+    font-weight: 700;
+    background-color: green;
+    border: #fff;
+    cursor: pointer;
+}
+
+@media (max-width : 900px){
+
+    .inner-container.login , .inner-container.register{
+        height: fit-content;
+        width: fit-content;
+        max-width: 90%;
+        padding: 2em 4em;
+        background-color: #fff;
+        border: 4px solid #000;
+        border-radius: 1.5rem;
+    }
+    
+    form label{ 
+        margin: .5em 0 ;
+        font-size: 1.2rem;
+    }
+}

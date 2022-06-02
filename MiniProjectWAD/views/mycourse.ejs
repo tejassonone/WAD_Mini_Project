@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style1.css">
+    <title><%= course.name %></title>
+</head>
+<body>
+    <%- include('./partials/header.ejs')%>
+    <div class="data">{
+        <h1 id="<%= course.id %>" class="title-mycourse" ><%= course.name %></h1>
+        <iframe src="<%= course.video %>" ></iframe>
+
+        <button class="complete">
+            <% if(course.complete){ %>
+                Completed
+            <% } else{ %>
+                Mark as Complete
+                <% } %>
+    
+        </button>
+    </div>
+    
+</body>
+
+<script>
+    const complete = document.querySelector('.complete');
+    complete.addEventListener('click',async()=>{
+        const id = document.querySelector('h1').id;
+        const userid = document.querySelector('.welcome').id;          
+        const res = await fetch ('/mycourse',{
+            method:'POST',
+            body: JSON.stringify({id,userid}),
+            headers:{
+                'Content-Type' : 'application/json',
+                'Accept': 'application/json'
+            },
+        });
+        location.assign('/allcourses');
+    })
+
+</script>
+</html>

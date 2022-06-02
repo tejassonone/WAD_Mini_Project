@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style1.css">
+    <title>Home</title>
+</head>
+<body>
+    <%- include('./partials/header.ejs')  %>
+
+    <main>
+        <div class="holder">
+            <div class="small-container">
+                <form action="/homepage/addtask" method="post">
+                    <input type="text" name="title"  value="" placeholder="Add Task" class="special_input" required>
+                    <input type="submit" name="submit" value="Add" class="special_input">
+                </form>
+    
+                <div class="display">
+                    <%if(myusers.tasks.length!=0){ %>
+                    <% myusers.tasks.forEach(task => {%>
+                    <div class="contents">
+                        <input type="text" name ="title" value="<%= task.name %>" id="<%= task.id %>">
+                        <button value="Delete" class="delete">Delete</button>
+                        <button value="Update" class="update">Update</button>
+    
+                        
+                    </div>
+    
+                   <% })%>
+                   <%} else {%>
+                    <p>No Tasks Yet</p>
+                   <%}%>
+    
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <script>
+
+        //For ADD
+        const form = document.querySelector('form');
+        const itstitle = form.title;
+        const submit = form.submit;
+        const userid = document.querySelector('.welcome').id;
+        
+
+        submit.addEventListener('click',async (e)=>{
+            e.preventDefault();
+            const title = form.title.value;
+            const res = await fetch ('/homepage/addtask',{
+                method:'POST',
+                body: JSON.stringify({title,userid}),
+                headers:{
+                    'Content-Type' : 'application/json',
+                    'Accept': 'application/json'
+                },
+            });
+            location.assign('/homepage');
+        })
+
+        //FOR DELETE
+        const del = document.querySelectorAll('.delete');
+        del.forEach(item => {
+            item.addEventListener('click', async (e)=>{
+            e.preventDefault();
+                const taskid = item.parentElement.firstElementChild.id;
+                const res = await fetch ('/homepage/delete',{
+                    method:'POST',
+                    body: JSON.stringify({userid,taskid}),
+                    headers:{
+                        'Content-Type' : 'application/json',
+                        'Accept': 'application/json'
+                    },
+                });
+                location.assign('/homepage');
+            })
+        });
+
+        //FOR UPDATE
+        const up = document.querySelectorAll('.update');
+        up.forEach(doc=>{        
+            doc.addEventListener('click',async (e)=>{
+                e.preventDefault();
+                const taskid = doc.parentElement.firstElementChild.id;
+                const updated = doc.parentElement.firstElementChild.value;
+                const res = await fetch ('/homepage/updatetask',{
+                    method:'POST',
+                    body: JSON.stringify({userid,taskid,updated}),
+                    headers:{
+                        'Content-Type' : 'application/json',
+                        'Accept': 'application/json'
+                    },
+                });
+                location.assign('/homepage');
+            })
+        })
+    </script>
+    
+</body>
+</html>

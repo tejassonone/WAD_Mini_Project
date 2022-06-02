@@ -1,0 +1,317 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+root{
+    --bluecolor : #00e6e6;
+}
+
+header{
+    width: 100%;
+    height: fit-content;
+    background-color: #000;
+    border-radius: 2.3rem;
+}
+.outside-container{
+    width: 96%;
+    margin: 0 auto;
+    display: block;
+}
+.upper-container,.lower-container{
+    /*border-bottom: 5px solid #00e6e6;*/
+    border-bottom: 1px solid #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3rem;
+}
+
+
+.logo{
+    font-size: 2.5rem;
+    font-weight: 700;
+    /*color: orangered;*/
+    color: #00e6e6;
+}
+
+span{
+    color: #fff;
+}
+
+.mymenubar ul{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+}
+.mymenubar ul li a{
+    text-decoration: none;
+    color: #fff;
+    margin: 0 0.5em;
+    font-size: 1.5rem;
+}    
+
+.logout a{
+    font-size: 1.3rem;
+    color: #00e6e6;
+}
+.welcome{
+    color: #fff;
+    font-size:1.5rem ;
+}
+
+@media (max-width:900px){
+
+    .upper-container,.lower-container{
+        height: 2.5rem;
+    }
+    
+    .logo{
+        font-size: 2rem;
+        font-weight: 600;
+    }
+
+    .mymenubar ul li a{
+        font-size: 1.2rem;
+    }    
+    
+    .logout a{
+        font-size: 1.1rem;
+        color: #00e6e6;
+    }
+    .welcome{
+        color: #fff;
+        font-size:1.2rem ;
+    }     
+}
+
+
+
+/*Profile*/
+.holder{
+    width: 90%;
+    margin: 2rem auto;
+    border: 3px dashed #000;
+    padding: 1em 1em;
+}
+.big-container{  
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.photo{
+    width: fit-content;
+    margin: 0  5rem;
+}
+
+.photo img{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.infoheading{
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+.info-container{    
+    width: 100%;
+    height: 40vh;
+    margin: 2rem auto;
+    display: grid;
+    grid-template-columns: 30% 60%;
+    column-gap: 10%;
+    padding: 0 ;
+
+}
+
+.labels{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 2em;
+}
+
+.boxes{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.boxes input{
+    width: 90%;
+    height: 10%;
+    border: 3px solid #011;
+}
+
+.save{
+    text-align: center;
+    font-size: 1.5rem;
+    background-color: green;
+    width: fit-content;
+    margin: 0 auto;
+    padding: .4em .8em;
+    border-radius: 3rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.save:hover{
+    transform: scale(1.1);
+}
+
+@media (max-width:900px) {
+    .big-container{  
+        flex-direction: column;
+    }    
+    .infoheading{
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 700;
+    }
+
+    .boxes input{
+        height: 8%;
+    }
+
+    .save{
+        font-size: 1.2rem;
+        padding: .2em .6em;
+    }    
+}
+
+
+/*HOMEPAGE*/
+form{
+    width: fit-content;
+    margin: 0 auto;;
+}
+.small-container{
+    width: 90%;
+    margin: 0 auto;
+}
+input{
+    margin: 10px 10px;
+    padding : 0.2em 0.5em;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.special_input{
+    border: 2px solid black;
+}
+button{
+    padding : 0.2em 0.5em;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+button:hover{
+    color: red;
+}
+.display{
+    margin: 2em 0;
+}
+.contents{
+    border : 3px solid #00e6e6;
+    border-radius: 1rem;
+    color: #000;
+    margin: 2em 0;
+}
+
+
+@media (max-width:900px){
+
+    input{
+        margin: .8em .01em;
+        font-size: 1rem;
+    }
+
+    button{
+        padding : 0.1em 0.4em;
+    }
+    
+}
+/*COURSES*/
+.allCourses{
+    width: 90%;
+    margin: 0 auto;
+}
+.mycourse{
+    display: flex;
+    background-color: #00e6e6;
+    justify-content: space-between;
+    padding: 1em;
+    border: 3px solid black;
+    border-radius: 2rem;
+    margin: 2em 0;
+}
+
+.mycourse button{
+    font-size: 1.2rem;
+}
+
+@media (max-width:900px){
+
+    .mycourse{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .mycourse h1{
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    .mycourse button{
+        font-size: 1.1rem;
+    }
+    
+}
+/*MYCOURSES*/
+
+.title-mycourse{
+    text-align: center;
+    font-size:2rem;
+    font-weight: 800;
+}
+.data{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+iframe{
+    width: 50vw;
+    height: 50vh;
+    margin: 2em auto;
+}
+.complete{
+    text-align: center;
+    font-size: 1.5rem;
+    background-color: green;
+    width: fit-content;
+    margin: 0 auto;
+    padding: .4em .8em;
+    border-radius: 3rem;
+    cursor: pointer;
+}
+
+@media (max-width:900px){
+    
+    iframe{
+        width: 80vw;
+        height: 40vh;
+        margin: 2em auto;
+    }
+    .complete{
+        font-size: 1.2rem;
+        padding: .2em .6em;
+
+    }
+}

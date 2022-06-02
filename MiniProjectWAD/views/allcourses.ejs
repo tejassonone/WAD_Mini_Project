@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <%- include('./partials/header.ejs')  %>
+
+    <main>
+        <div class="holder">
+            <div class="allCourses">
+                <%if(myusers.courses.length!=0){ %>
+                    <% myusers.courses.forEach(course => {%>
+                        <div class="mycourse" id="<%= course.id %>">
+                            <h1><%= course.course_name%></h1>
+                            <button>View Course</button>
+                        </div>
+                   <% })%>
+                   <%} else {%>
+                    <p>No Courses Yet</p>
+    
+                   <%}%>
+                
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const viewCourse = document.querySelectorAll('button');
+        console.log("Active");
+        viewCourse.forEach(course=> {
+            course.addEventListener('click',async ()=>{
+                const name = course.parentElement.firstElementChild.innerHTML;
+                const itsid = course.parentElement.id;
+                console.log(name + "   " + itsid);
+                const res = await fetch ('/course',{
+                    method:'POST',
+                    body: JSON.stringify({name,itsid}),
+                    headers:{
+                        'Content-Type' : 'application/json',
+                        'Accept': 'application/json'
+                    },
+                });
+                location.assign('/mycourse');
+                 
+            })
+        })
+    </script>
+</body>
+
+
+</html>
